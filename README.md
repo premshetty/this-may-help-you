@@ -6,3 +6,13 @@
   const isMobile = () => window.matchMedia('(max-width: 700px)').matches
   </code>
 <hr />
+
+# how to add background image to next js 
+```
+style={{
+        backgroundImage: 'url("/beach.avif")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+```
