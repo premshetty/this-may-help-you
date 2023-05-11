@@ -42,3 +42,20 @@ function PrintElem(elem)
 PrintElem('print1')
 
 ```
+
+
+# Url identifier Function with the help of Regex
+
+```js
+function containsLink(paragraph) {
+  const regex = /((http|https):\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\.[a-z]{2,})?(\/[^\s]*)?/i;
+  const match = regex.exec(paragraph);
+  if (match && match[0].includes('.') && !match[0].startsWith('www.')) {
+    const link = match[0];
+    const httpsLink = link.replace(/^http:/, "https:");
+    return httpsLink;
+  }
+  return false;
+}
+
+```
