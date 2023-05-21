@@ -1,3 +1,6 @@
+# find Approximate location of a user based on IPadress
+
+# for frontend
 ```js
 // Make an API request to an IP geolocation service
 fetch('https://ipapi.co/json/')
@@ -12,5 +15,27 @@ fetch('https://ipapi.co/json/')
   .catch(error => {
     console.error('Error retrieving location:', error);
   });
+
+```
+
+
+# for backend 
+
+
+```js
+const geoip = require('geoip-lite');
+
+// Get IP address of the user
+const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+// Retrieve the approximate location based on the IP address
+const location = geoip.lookup(ipAddress);
+
+if (location) {
+  const { city, region, country } = location;
+  console.log(`Approximate location: ${city}, ${region}, ${country}`);
+} else {
+  console.log('Location not found.');
+}
 
 ```
